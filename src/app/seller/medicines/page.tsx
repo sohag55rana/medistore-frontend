@@ -156,7 +156,7 @@ export default function SellerInventoryPage() {
             <form onSubmit={handleUpdate} className="space-y-4">
               <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-1">
-                  Medicine Name
+                  Medicines Name
                 </label>
                 <input
                   type="text"
