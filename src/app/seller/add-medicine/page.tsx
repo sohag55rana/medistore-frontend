@@ -132,7 +132,7 @@ export default function AddMedicinePage() {
 
           <div>
             <label className="text-sm font-medium text-gray-700 block mb-1">
-              Manufacturer (Company) Here
+              Manufacturer (Company)
             </label>
             <input
               type="text"
