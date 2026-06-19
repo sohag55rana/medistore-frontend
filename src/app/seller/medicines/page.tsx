@@ -181,7 +181,7 @@ export default function SellerInventoryPage() {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-500 mb-1">
-                    Stock Quantity Here
+                    Stock Quantity
                   </label>
                   <input
                     type="number"
