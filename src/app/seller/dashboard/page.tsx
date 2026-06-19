@@ -147,7 +147,7 @@ export default function SellerDashboardPage() {
             className="bg-white p-4 rounded-lg border border-gray-200 hover:border-emerald-500 transition flex justify-between items-center group"
           >
             <span className="text-sm font-medium text-gray-700">
-              Manage Medicine Inventory & Stock
+              Manage Medicine Inventory & Stocks
             </span>
             <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-emerald-600 transition" />
           </Link>
