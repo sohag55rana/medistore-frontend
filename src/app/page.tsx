@@ -96,7 +96,7 @@ export default function Home() {
               Fastest Delivery
             </h3>
             <p className="text-gray-600 text-sm mt-2">
-              Get your emergency medicines delivered within hours at your home.
+              Get your emergency medicine delivered within hours at your home.
             </p>
           </div>
           <div className="p-4">
