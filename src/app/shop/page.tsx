@@ -78,7 +78,7 @@ export default function ShopPage() {
                 </h3>
 
                 <p className="text-xs text-gray-400 italic mb-2">
-                  {med.manufacturer} Pharmaceuticals
+                  {med.manufacturer} Pharmaceutical
                 </p>
                 <p className="text-sm text-gray-600 line-clamp-2">
                   {med.description}
