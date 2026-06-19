@@ -36,7 +36,7 @@ export default function Footer() {
             <p className="mt-4 text-sm text-gray-400">
               Email: support@medistore.com
             </p>
-            <p className="text-sm text-gray-400">Hotline: +880 1234-5678900</p>
+            <p className="text-sm text-gray-400">Hotline: +880 1234-567900</p>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
