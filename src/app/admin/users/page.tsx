@@ -18,12 +18,12 @@ export default function AdminUsersPage() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/api/admin/users",
-        {
-          withCredentials: true,
-        },
-      );
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
+      const response = await axios.get(`${baseUrl}/api/admin/users`, {
+        withCredentials: true,
+      });
       setUsers(response.data);
     } catch {
       console.error("Failed to load users");
@@ -45,8 +45,11 @@ export default function AdminUsersPage() {
     if (!confirm(`Are you sure you want to ${action} this user?`)) return;
 
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
       await axios.patch(
-        `http://localhost:5000/api/admin/users/${userId}/ban`,
+        `${baseUrl}/api/admin/users/${userId}/ban`,
         { isBanned: !currentBanStatus },
         { withCredentials: true },
       );

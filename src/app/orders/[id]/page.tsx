@@ -36,12 +36,12 @@ export default function OrderDetailsPage({
   useEffect(() => {
     const fetchOrderDetails = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/orders/${id}`,
-          {
-            withCredentials: true,
-          },
-        );
+        const baseUrl =
+          process.env.NEXT_PUBLIC_API_URL ||
+          "https://medistore-backend-d6d5.onrender.com";
+        const response = await axios.get(`${baseUrl}/api/orders/${id}`, {
+          withCredentials: true,
+        });
         setOrder(response.data);
       } catch {
         setError("Failed to load order details.");

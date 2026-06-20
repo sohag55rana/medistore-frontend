@@ -27,9 +27,12 @@ export default function SellerInventoryPage() {
 
   const fetchInventory = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/medicines", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://medistore-backend-d6d5.onrender.com/api/medicines",
+        {
+          withCredentials: true,
+        },
+      );
       setMedicines(response.data);
     } catch {
       console.error("Failed to load inventory");
@@ -49,7 +52,10 @@ export default function SellerInventoryPage() {
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this medicine?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/medicines/${id}`, {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
+      await axios.delete(`${baseUrl}/api/medicines/${id}`, {
         withCredentials: true,
       });
       setMedicines(medicines.filter((med) => med.id !== id));
@@ -71,8 +77,11 @@ export default function SellerInventoryPage() {
     if (!editingMedicine) return;
 
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
       await axios.put(
-        `http://localhost:5000/api/medicines/${editingMedicine.id}`,
+        `${baseUrl}/api/medicines/${editingMedicine.id}`,
         { name, price, stock },
         { withCredentials: true },
       );

@@ -17,12 +17,13 @@ export default function AdminCategoriesPage() {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/api/medicines/categories",
-        {
-          withCredentials: true,
-        },
-      );
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
+
+      const response = await axios.get(`${baseUrl}/api/medicines/categories`, {
+        withCredentials: true,
+      });
       setCategories(response.data);
     } catch {
       console.error("Failed to load categories");
@@ -47,8 +48,12 @@ export default function AdminCategoriesPage() {
 
     setSubmitting(true);
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
+
       await axios.post(
-        "http://localhost:5000/api/medicines/categories",
+        `${baseUrl}/api/medicines/categories`,
         { name: newCategoryName },
         { withCredentials: true },
       );

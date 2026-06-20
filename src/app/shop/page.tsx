@@ -23,7 +23,9 @@ export default function ShopPage() {
   useEffect(() => {
     const fetchMedicines = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/medicines");
+        const response = await axios.get(
+          "https://medistore-backend-d6d5.onrender.com/api/medicines",
+        );
         setMedicines(response.data);
       } catch {
         setError("Failed to load medicines. Make sure backend is running.");

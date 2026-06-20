@@ -25,9 +25,7 @@ export default function MedicineReviews({
   const fetchReviews = useCallback(async () => {
     if (!medicineId) return;
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/reviews/${medicineId}`,
-      );
+      const res = await axios.get(`/api/reviews/${medicineId}`);
       setReviews(res.data);
     } catch (err) {
       console.error("Failed to fetch reviews", err);
@@ -50,8 +48,11 @@ export default function MedicineReviews({
 
     setSubmitting(true);
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
       await axios.post(
-        "http://localhost:5000/api/reviews",
+        `${baseUrl}/api/reviews`,
         { rating, comment, medicineId },
         { withCredentials: true },
       );

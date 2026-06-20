@@ -28,9 +28,10 @@ export default function MedicineDetailsPage({
 
   const fetchDetails = useCallback(async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/medicines/${medicineId}`,
-      );
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
+      const res = await axios.get(`${baseUrl}/api/medicines/${medicineId}`);
       setMedicine(res.data);
     } catch (err) {
       console.error(err);

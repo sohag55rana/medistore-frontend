@@ -27,9 +27,10 @@ export default function AddMedicinePage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/medicines/categories",
-        );
+        const baseUrl =
+          process.env.NEXT_PUBLIC_API_URL ||
+          "https://medistore-backend-d6d5.onrender.com";
+        const response = await axios.get(`${baseUrl}/api/medicines/categories`);
         setCategories(response.data);
       } catch {
         console.error("Failed to load categories");
@@ -45,8 +46,11 @@ export default function AddMedicinePage() {
     setLoading(true);
 
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
       const response = await axios.post(
-        "http://localhost:5000/api/medicines/add",
+        `${baseUrl}/api/medicines/add`,
         {
           name,
           description,

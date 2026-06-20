@@ -19,8 +19,11 @@ export default function LoginPage() {
     setSuccess("");
 
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${baseUrl}/api/auth/login`,
         {
           email,
           password,

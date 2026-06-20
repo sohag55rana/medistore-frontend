@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="space-y-20 pb-20">
@@ -12,12 +14,12 @@ export default function Home() {
             directly to your doorstep with Cash on Delivery.
           </p>
           <div className="mt-10">
-            <a
+            <Link
               href="/shop"
               className="bg-white text-emerald-700 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-emerald-50 transition duration-300"
             >
               Browse Medicines
-            </a>
+            </Link>
           </div>
         </div>
       </section>

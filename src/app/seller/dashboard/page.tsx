@@ -25,12 +25,12 @@ export default function SellerDashboardPage() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/orders/seller-stats",
-          {
-            withCredentials: true,
-          },
-        );
+        const baseUrl =
+          process.env.NEXT_PUBLIC_API_URL ||
+          "https://medistore-backend-d6d5.onrender.com";
+        const response = await axios.get(`${baseUrl}/api/orders/seller-stats`, {
+          withCredentials: true,
+        });
         console.log("Dashboard API Response:", response.data);
         setStats(response.data);
       } catch {

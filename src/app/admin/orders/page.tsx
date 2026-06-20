@@ -28,7 +28,10 @@ export default function AdminOrdersPage() {
 
   const fetchAllOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/orders", {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
+      const response = await axios.get(`${baseUrl}/api/orders`, {
         withCredentials: true,
       });
       setOrders(response.data);
@@ -49,8 +52,11 @@ export default function AdminOrdersPage() {
 
   const handleStatusChange = async (orderId: string, newStatus: string) => {
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
       await axios.patch(
-        `http://localhost:5000/api/orders/${orderId}/status`,
+        `${baseUrl}/api/orders/${orderId}/status`,
         { status: newStatus },
         { withCredentials: true },
       );

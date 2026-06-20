@@ -21,8 +21,11 @@ export default function RegisterPage() {
     setSuccess("");
 
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${baseUrl}/api/auth/register`,
         {
           name,
           email,

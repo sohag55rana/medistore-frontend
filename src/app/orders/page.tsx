@@ -41,8 +41,12 @@ export default function OrderHistoryPage() {
         const user = JSON.parse(savedUser);
         const userId = user.id;
 
+        const baseUrl =
+          process.env.NEXT_PUBLIC_API_URL ||
+          "https://medistore-backend-d6d5.onrender.com";
+
         const response = await axios.get(
-          `http://localhost:5000/api/orders/user/${userId}`,
+          `${baseUrl}/api/orders/user/${userId}`,
           { withCredentials: true },
         );
 

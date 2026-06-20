@@ -30,9 +30,12 @@ export default function SellerOrdersPage() {
 
   const fetchAllOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/orders", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://medistore-backend-d6d5.onrender.com/api/orders",
+        {
+          withCredentials: true,
+        },
+      );
       setOrders(response.data);
     } catch {
       setError("Failed to load orders.");
@@ -52,8 +55,11 @@ export default function SellerOrdersPage() {
   const handleStatusUpdate = async (orderId: string, newStatus: string) => {
     setActionLoading(orderId);
     try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
       await axios.patch(
-        `http://localhost:5000/api/orders/${orderId}/status`,
+        `${baseUrl}/api/orders/${orderId}/status`,
         { status: newStatus },
         { withCredentials: true },
       );

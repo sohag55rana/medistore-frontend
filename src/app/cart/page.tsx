@@ -37,8 +37,12 @@ export default function CartPage() {
         price: item.price,
       }));
 
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ||
+        "https://medistore-backend-d6d5.onrender.com";
+
       const response = await axios.post(
-        "http://localhost:5000/api/orders/create",
+        `${baseUrl}/api/orders/create`,
         {
           shippingAddress,
           items: formattedItems,
