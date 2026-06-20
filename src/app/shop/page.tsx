@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCart } from "@/context/CartContext";
+import Link from "next/link";
 
 interface Medicine {
   id: string;
@@ -104,6 +105,12 @@ export default function ShopPage() {
                   Add to Cart
                 </button>
               </div>
+              <Link
+                href={`/shop/${med.id}`}
+                className="block text-center bg-gray-50 hover:bg-gray-100 text-gray-700 text-xs font-semibold py-2 rounded-lg border border-gray-200 transition"
+              >
+                View Details & Reviews
+              </Link>
             </div>
           ))}
         </div>
