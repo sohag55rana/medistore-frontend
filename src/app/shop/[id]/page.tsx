@@ -50,7 +50,7 @@ export default function MedicineDetailsPage({
   if (loading)
     return (
       <div className="p-10 text-center font-medium text-gray-500">
-        Loading.....
+        Loading........
       </div>
     );
   if (!medicine)
