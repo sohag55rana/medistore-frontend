@@ -56,7 +56,7 @@ export default function MedicineDetailsPage({
   if (!medicine)
     return (
       <div className="p-10 text-center font-medium text-red-500">
-        Medicine not found!
+        Medicine not found!!!!
       </div>
     );
 
