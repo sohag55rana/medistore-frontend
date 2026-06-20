@@ -75,7 +75,7 @@ export default function MedicineReviews({
         className="bg-gray-50 p-5 rounded-xl border border-gray-100 mb-8 space-y-4"
       >
         <h3 className="text-sm font-bold text-gray-700 uppercase tracking-wider">
-          Share your feedback
+          Share your feedback ...
         </h3>
 
         <div className="flex items-center space-x-2">
