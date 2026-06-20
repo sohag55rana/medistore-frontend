@@ -14,14 +14,23 @@ import {
   ShoppingBag,
   PlusCircle,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
-  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { cartCount } = useCart();
+  const { cartCount, setCartItems, clearCart } = useCart() as unknown as {
+    cartCount: number;
+    setCartItems?: (
+      items: Array<{
+        id: string;
+        name: string;
+        price: number;
+        quantity: number;
+      }>,
+    ) => void;
+    clearCart?: () => void;
+  };
 
   const [user, setUser] = useState<{ name: string; role: string } | null>(
     () => {
@@ -43,9 +52,15 @@ export default function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("cart");
+    if (setCartItems) {
+      setCartItems([]);
+    } else if (clearCart) {
+      clearCart();
+    }
     setUser(null);
     setDropdownOpen(false);
-    router.push("/login");
+    window.location.href = "/login";
   };
   if (!mounted) {
     return (

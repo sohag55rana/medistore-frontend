@@ -39,7 +39,8 @@ export default function LoginPage() {
         setTimeout(() => {
           router.push("/");
           router.refresh();
-        }, 1500);
+        }, 1000);
+        router.refresh();
       }
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
