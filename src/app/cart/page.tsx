@@ -59,12 +59,10 @@ export default function CartPage() {
           router.push("/shop");
         }, 2000);
       }
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Failed to place order. Try again.");
-      }
+    } catch {
+      setError(
+        "Access Denied: Only customers can place orders. Sellers or Admins are not allowed.",
+      );
     } finally {
       setLoading(false);
     }
