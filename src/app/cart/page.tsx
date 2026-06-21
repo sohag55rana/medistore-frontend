@@ -204,6 +204,44 @@ export default function CartPage() {
               <span>৳ {totalPrice}</span>
             </div>
 
+            <div className="mt-6 p-4 border border-gray-200 rounded-xl bg-gray-50">
+              <h3 className="text-sm font-semibold text-gray-700 mb-3">
+                {" "}
+                Powered by Stripe
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <label className="text-xs text-gray-500">Card Number</label>
+                  <input
+                    type="text"
+                    placeholder="4242 4242 4242 4242"
+                    defaultValue="4242424242424242"
+                    className="w-full p-2 text-sm border border-gray-300 rounded-lg focus:outline-emerald-500"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="text-xs text-gray-500">Expiry Date</label>
+                    <input
+                      type="text"
+                      placeholder="MM/YY"
+                      defaultValue="12/29"
+                      className="w-full p-2 text-sm border border-gray-300 rounded-lg focus:outline-emerald-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-gray-500">CVC</label>
+                    <input
+                      type="text"
+                      placeholder="123"
+                      defaultValue="123"
+                      className="w-full p-2 text-sm border border-gray-300 rounded-lg focus:outline-emerald-500"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <button
               onClick={handleCheckout}
               disabled={loading}
