@@ -59,8 +59,12 @@ export default function CartPage() {
           router.push("/shop");
         }, 2000);
       }
-    } catch {
-      setError("Failed to place order. Try again.");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Failed to place order. Try again.");
+      }
     } finally {
       setLoading(false);
     }
